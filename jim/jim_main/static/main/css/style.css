@@ -1,0 +1,257 @@
+.navbar-brand img {
+    width: 30px; /* установите желаемую ширину */
+    float: left;
+}
+
+.body {
+    background: url(image/fon.png) no-repeat center center fixed; /* задаем изображение в качестве фона */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; /* чтобы изображение заполняло всю область фона */
+    z-index: 0; /* устанавливаем z-index */
+    height: 900px; /* устанавливаем высоту */
+}
+
+.main-pic {
+    height: 400px;
+    width: 420px;
+}
+
+.main-continue {
+    height: 800px;
+    background-color: #1e1f20;
+    padding-left: 0%;
+}
+
+.main-divider {
+    height: 100px;
+    background-color: #c85610;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 60px;
+}
+
+.main-element-four {
+    display: inline-block;
+    height: 300px;
+    width: 600px;
+    margin-top: 4%;
+    margin-left: 130px;
+    background-color: #464646;
+    border-radius: 25px;
+}
+
+.element-pic {
+    height: auto;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.element-text {
+    margin-top: 12%;
+    margin-right: 2%;
+    width: 300px;
+    float: right;
+}
+
+.element-img {
+    height: 200px;
+    padding-left: 20px;
+    margin-top: 50px;
+}
+
+.last-pic {
+    padding-left: 10%;
+}
+
+.last-stats {
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+}
+
+.last-text {
+    padding-left: 5px;
+    padding-top: 90px;
+    font-size: 40px;
+}
+
+.sportsmens {
+    display: flex;
+    padding-left: 350px;
+    flex-direction: row;
+
+    justify-content: flex-start;
+}
+
+.sportsmen {
+    display: inline-block;
+    height: 300px;
+}
+
+.sportsmen-img {
+    margin-top: 40px;
+    height: 400px;
+    width: 500px;
+    padding-left: 30px;
+}
+
+.input-field {
+    background-color: #464646;
+    color: #c85610;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    padding-left: 5px;
+    width: 250px;
+}
+
+
+.wrap-create {
+    background-color: #1e1f20;
+    margin-left: 32%;
+    margin-right: 32%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.create-btn-div {
+    width: 350px;
+    margin-left: 23%;
+}
+
+.create-btn {
+    width: 340px;
+    background-color: #c85610;
+    color: #fff;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    height: 35px;
+}
+
+.my_page {
+    height: 600px;
+    background-color: #1e1f20;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 7%;
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    text-align: center;
+
+}
+
+.myTrenings {
+    color: #fff;
+}
+
+.dropdown {
+    position: relative;
+    height: 4px;
+}
+
+.dropdown_button {
+    height: 28px;
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 4px;
+    background-color: #c4c4c4;
+    border-radius: 6px;
+    padding: 1px;
+    padding-left: 12px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.dropdown_button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+    border-width: 5.2px 4px 0px 4px;
+    border-color: black transparent transparent transparent;
+    border-style: solid;
+
+}
+
+.dropdown_list {
+    display: none;
+
+    position: absolute;
+    left: 0px;
+    top: 26px;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border-radius: 3px;
+    background-color: white;
+    border-color: #000000;
+
+    overflow: hidden;
+
+    width: 100%;
+    z-index: 9999;
+}
+
+.dropdownListVisible {
+    display: block;
+    z-index: 9999;
+}
+
+.dropdown-list-item {
+    margin: 0;
+    padding: 0;
+
+    font-size: 14px;
+
+    border: 2px solid #000000;
+    border-bottom: none;
+    padding-left: 3px;
+
+    cursor: pointer;
+    z-index: 9999;
+
+}
+
+.dropdown-list-item:first-child {
+    border-radius: 3px 3px 0px 0px;
+}
+
+.dropdown-list-item:last-child {
+    border-radius: 0px 0px 3px 3px;
+    border-bottom: 2px solid #000000;
+}
+
+.dropdown-list-item:hover {
+    background-color: #484848;
+    color: rgb(215, 215, 215);
+}
+
+.delete-button {
+    border-radius: 10px;
+}
+
+.dropdown-list-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-list-item a:hover {
+    text-decoration: none;
+    color: rgb(149, 149, 149);
+}

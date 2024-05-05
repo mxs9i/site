@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div style='padding-top:20%; padding-left:36%'>
+    <h1 style="color:#fff;"> Your loving Jim is {{value}}</h1>
+    <div style="margin-left: 230px;color:#fff; background-color: red; display:inline; width:300px">
+        <a href="{% url 'deletecoockie' %}" style="color:#fff; text-decoration:none;">Delete cockie</a>
+    </div>
+</div>
+{% endblock %}

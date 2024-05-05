@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'main/css/halls.css' %}">
+<div class="halls">
+    {% for hall in halls %}
+    <div class="hall">
+        <div class="hall_label">
+            {{hall.title}}
+        </div>
+        <div>
+            <img src="/static/main/images/{{hall.photos}}/main.jpg" alt="" class="hall_mainpng">
+        </div>
+        <div class="hall_description">
+            Адрес : {{hall.Adres}}
+            <p>Площадь : {{hall.area}}м^2</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

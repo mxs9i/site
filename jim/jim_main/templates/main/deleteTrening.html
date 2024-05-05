@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div
+    style="text-align: center; background-color:rgb(93, 93, 93); border-radius:12px; margin-left: 30%; margin-right:30%; margin-top:20%">
+    <div style="display: block; padding: 20px;">
+        <h1>Желаете удалить запись ?</h1>
+    </div>
+    <div style="display: block; padding: 10px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <button class="delete-button" style="width:400px; background-color:brown; margin-bottom: 12px"
+                type="submit">Удалить</button>
+        </form>
+        <a class="delete-button" style="width:400px; background-color:darkgreen; text-decoration:none"
+            href="{% url 'home' %}">Отмена</a>
+    </div>
+</div>
+{% endblock %}

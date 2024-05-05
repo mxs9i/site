@@ -1,0 +1,52 @@
+.abonements {
+    display: flex;
+    justify-content: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+    gap: 20px; /* Add space between items */
+    padding: 20px; /* Add padding around the container */
+    padding-top: 8%; /* Adjust top padding if necessary */
+}
+
+
+.abonement {
+    background-color: #1e1f20;
+    border-radius: 50px;
+    margin: 100px; /* Add margin around each subscription option */
+    padding: 20px; /* Add padding */
+}
+
+
+.abonement-img {
+    height: 300px;
+}
+
+.abonement-title {
+    margin-top: 7px;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.abonement-button-div {
+    margin-top: 20px; /* Adjust top margin as needed */
+    display: flex;
+    justify-content: center;
+}
+
+.abonement-button {
+    background-color: #c85610;
+    border-radius: 25px;
+    width: 200px;
+    height: 40px;
+    color: #fff;
+    display: inline-block; /* Make the button a block element */
+    line-height: 40px; /* Center the text vertically */
+    text-decoration: none; /* Remove underlining */
+    transition: transform 0.2s ease; /* Smooth transition */
+}
+
+.abonement-button:hover {
+    transform: scale(1.1); /* Increase size on hover */
+}

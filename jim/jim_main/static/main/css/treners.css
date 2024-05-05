@@ -1,0 +1,42 @@
+.treners {
+    display: flex;
+    justify-content: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+    gap: 100px; /* Add space between items */
+    padding: 20px; /* Add padding around the container */
+    padding-top: 12%; /* Adjust top padding if necessary */
+}
+
+.trener {
+    background-color: #1e1f20;
+    border-radius: 25px;
+    padding-left: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.trener-img {
+    height: 400px;
+    width: 500px;
+}
+
+.trener-title {
+    margin-top: 7px;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trener-descrription {
+    margin-top: 7px;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    flex-direction: column;
+
+}

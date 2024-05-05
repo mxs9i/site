@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "main/css/style.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "signIn/css/style.css" %}'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'main/js/jquery.js' %}"></script>
+    <script src="{% static 'main/js/main.js'%}"></script>
+</head>
+
+<body>
+
+    <style>
+        .navbar {
+            background-color: #c85610;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 16px;
+            transition: font-size 0.2s ease; /* Smooth transition for font size */
+        }
+
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover {
+            color: #eee;
+            font-size: 18px; /* Increase font size on hover */
+        }
+
+        .navbar-toggler {
+            border-color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home'%}">Главная</a>
+            <a class="navbar-brand" href="{% url 'mypage' %}">Моя страница</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 top-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'abonements'%}">Абонементы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'ourcomand'%}">Наша команда</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'halls'%}">Наши Залы</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- Moved to the right -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'createtrening'%}">Записаться на
+                            тренировку</a>
+                    </li>
+                    <li class="last">
+                        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Выйти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'loveJim'%}">Любимый
+                            спортзал</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'signUp'%}">Регистрация</a>
+                    </li>
+                    <li class="nav-item me-0"> <!-- Applied Bootstrap utility class -->
+                        <a class="nav-link active" aria-current="page" href="{% url 'signIn'%}">Вход</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="body" style="text-align: center;">
+        <img src="{% static 'signIn/images/login.png'%}" alt="" class="main-pic" style="margin-top: 7%;">
+        <h2 style="color: #fff; font-size: 50px;">Тренажерный зал</h2>
+        <h1 style="color: #fff; font-size: 70px;">FitnessClub</h1>
+    </div>
+    <div class="main-divider">
+        Что может предложить FitnessClub?
+    </div>
+    <div class="main-continue">
+        <div class="main-element-four">
+            <div class="element-pic">
+                <img src="static/main/images/places.png" alt="" class="element-img">
+            </div>
+            <div class="element-text" style="color: #fff;">
+                Чем больше пространства для занятий - тем лучше. Мы стараемся предоставить нашим клиентам как можно
+                больше свободного места для тренировок.
+            </div>
+        </div>
+        <div class="main-element-four">
+            <div class="element-pic">
+                <img src="static/main/images/atmospher.png" alt="" class="element-img">
+            </div>
+            <div class="element-text" style="color: #fff;">
+                Хорошее освещение, мягкое покрытие, большие зеркала, постоянное кондиционирование - вот к чему мы
+                стремимся в обустройстве залов
+            </div>
+        </div>
+        <div class="main-element-four">
+            <div class="element-pic">
+                <img src="static/main/images/dush.png" alt="" class="element-img">
+            </div>
+            <div class="element-text" style="color: #fff;">
+                Вы оцените наши новые и современные душевые, которые придутся очень кстати после долгих физических
+                нагрузок.
+            </div>
+        </div>
+        <div class="main-element-four">
+            <div class="element-pic">
+                <img src="static/main/images/trenager.png" alt="" class="element-img">
+            </div>
+            <div class="element-text" style="color: #fff;">
+                Мы постепенно обновляем парк наших машин на самое современное силовое оборудование. Все тренажеры
+                отвечают самым современным требованиям по эффективности и безопасности.
+            </div>
+        </div>
+    </div>
+    <div class="main-divider">
+        FitnessClub - зона спорта и отличного настроения!
+    </div>
+    <div class="main-continue" style="height:900px">
+        <div class="last-stats">
+            <div class="last-pic">
+                <img src="static/main/images/clients.png" alt="" class="element-img">
+            </div>
+            <div class="last-text" style="color: #fff">
+                Более 50.000 клиентов
+            </div>
+            <div class="last-pic">
+                <img src="static/main/images/cups.png" alt="" class="element-img">
+            </div>
+            <div class="last-text" style="color: #fff">
+                В нашей команде более 100 человек
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+        <div class="main-divider">
+            Постоянные гости FitnessClub
+        </div>
+            <div class="sportsmens">
+                <div class="sportsmen">
+                    <img src="static/main/images/sport1.png" alt="" class="sportsmen-img">
+                </div>
+                <div class="sportsmen">
+                    <img src="static/main/images/sport2.png" alt="" class="sportsmen-img">
+                </div>
+                <div class="sportsmen">
+                    <img src="static/main/images/sport3.png" alt="" class="sportsmen-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

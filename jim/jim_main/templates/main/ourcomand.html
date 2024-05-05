@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="treners">
+    {% for trener in treners %}
+    <div class="trener">
+        <h3 class="trener-title">{{ trener.first_name }} {{trener.last_name}}</h3>
+        <img src="/static/main/images/{{trener.photos}}" alt="" class="trener-img">
+        <div class="trener-descrription">
+            Телефон : {{trener.phone}}
+            <p>Email : {{trener.mail}} </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

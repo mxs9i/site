@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrap-create">
+
+    <form method="post">
+        <div class="wrap-taskProperty100">
+            <h2 style="color: #fff; margin-top: 2%;">Запись на тренировку</h2>
+        </div>
+        {% csrf_token %}
+        {% for f in form %}
+        <p><span class="field-label" id="inputGroup-sizing-default" style="color: #fff;">{{f.label}}: </span>
+            {{f}}
+            {% endfor %}
+        <div class="create-btn-div">
+            <button class="create-btn" type="submit">Записаться</button>
+        </div>
+    </form>
+
+
+    <script src="{% static 'main/js/jquery.js' %}"></script>
+    <script src="{% static 'main/js/jquery.datetimepicker.full.js' %}"></script>
+
+    <script>
+        /*jslint browser:true*/
+        /*global jQuery, document*/
+
+        jQuery(document).ready(function () {
+            'use strict';
+
+            jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+        });
+    </script>
+</div>
+{% endblock %}

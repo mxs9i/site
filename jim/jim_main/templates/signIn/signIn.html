@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class='wrap-login'>
+    <span class="login-form-title">
+        Вход
+    </span>
+    <div class="wrap-pic">
+        <img src="{% static 'signIn/images/login.png' %}" alt="IMG" class="login-pic">
+    </div>
+
+    <form action="{% url 'signIn' %}" method="post" class="signIn-form">
+        {% csrf_token %}
+        <div class='form-error'>{{ form.non_field_errors }}</div>
+        <div class=" login-item">
+            {{ form.username }}
+        </div>
+        <div class="form-error">{{ f.errors }}</div>
+        <div class="login-item">
+            {{ form.password }}
+        </div>
+
+        <button class="login-form-btn">
+            Вход
+        </button>
+        <div class="forward-pass">
+            <span class="txt1">
+                Забыли
+            </span>
+            <a class="txt2" href="#">
+                Логин / Пароль ?
+            </a>
+        </div>
+
+        <div class="forward-pass">
+            <a class="txt2" href="{% url 'signUp' %}">
+                Зарегистрируйтесь
+                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

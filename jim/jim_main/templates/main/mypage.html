@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="my_page">
+    <h1 class="myTrenings">Мои тренировки</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" style="color: white" ;>Дата и время</th>
+                    <th scope="col" style="color: white;">Тренер</th>
+                    <th scope="col" style="color: white;">Адрес</th>
+                    <th scope="col" style="color: white;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trening in trenings %}
+                <tr>
+                    <td style="color: white;"> {{ trening.dt }} </td>
+                    <td style="color: white;">{{ trening.trener }}</td>
+                    <td style="color: white;">{{ trening.hall }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropdown_button">...</button>
+                            <ul class="dropdown_list">
+                                <li class="dropdown-list-item"><a
+                                        href="{% url 'updateTrening' trening.pk  %}">Изменить</a>
+                                </li>
+                                <li class="dropdown-list-item"><a
+                                        href="{% url 'deleteTrening' trening.pk  %}">Отменить</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="{% static 'main/js/dropdown.js'%}"></script>
+</div>
+{% endblock %}

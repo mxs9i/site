@@ -1,0 +1,39 @@
+.halls {
+    display: flex;
+    justify-content: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+    gap: 200px; /* Add space between items */
+    padding: 20px; /* Add padding around the container */
+    padding-top: 12%; /* Adjust top padding if necessary */
+}
+
+.hall {
+    background-color: #1e1f20;
+    border-radius: 25px;
+    padding-left: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+    padding-right: 10px;
+    height: 450px;
+    display: flex; /* Use flexbox to center content vertically */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+.hall_label {
+    color: yellow;
+    font-size: 40px;
+    text-align: center; /* Center text horizontally */
+}
+
+.hall_mainpng {
+    height: 300px;
+    margin: auto; /* Center image horizontally */
+}
+
+.hall_description {
+    padding-top: 20px;
+    color: yellow;
+    font-size: 20px;
+    text-align: center; /* Center text horizontally */
+}
