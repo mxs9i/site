@@ -9,11 +9,51 @@
     <div style="display: block; padding: 10px;">
         <form action="" method="post">
             {% csrf_token %}
-            <button class="delete-button" style="width:400px; background-color:brown; margin-bottom: 12px"
+            <button class="delete-button" style="width:400px; margin-bottom: 12px"
                 type="submit">Удалить</button>
         </form>
-        <a class="delete-button" style="width:400px; background-color:darkgreen; text-decoration:none"
+        <a class="cancel-button" style="width:400px; text-decoration:none"
             href="{% url 'mypage' %}">Отмена</a>
     </div>
 </div>
+
+<style>
+.delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #ff4444; /* Красный цвет при наведении курсора */
+    color: #ffffff; /* Белый цвет текста при наведении курсора */
+}
+
+.cancel-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    background-color: transparent; /* Прозрачный фон */
+    color: #000000; /* Черный цвет текста */
+}
+
+.cancel-button:hover {
+    background-color: #2ecc71; /* Зеленый цвет фона при наведении курсора */
+    color: #ffffff; /* Белый цвет текста при наведении курсора */
+}
+
+</style>
 {% endblock %}
+
