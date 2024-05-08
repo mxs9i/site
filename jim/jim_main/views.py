@@ -45,7 +45,7 @@ class TreningUpdate(UpdateView):
 class TreningDelete(DeleteView):
     model = Trenings
     template_name = 'main/deleteTrening.html'
-    success_url = '/home'
+    success_url = '/mypage'
 
 def halls(request) :
     halls = Halls.objects.all()
