@@ -82,23 +82,21 @@
 
 .sportsmens {
     display: flex;
-    padding-left: 350px;
-    flex-direction: row;
-
+    flex-wrap: wrap; /* Разрешаем перенос строк для адаптивного поведения */
     justify-content: flex-start;
+    padding-left: 5%; /* Используем отступ слева в процентах, чтобы быть более адаптивными */
 }
 
 .sportsmen {
-    display: inline-block;
-    height: 300px;
+    flex: 0 0 30%; /* Задаем ширину каждого элемента в 30%, чтобы вместить 3 в строку */
+    margin: 10px; /* Добавляем немного отступа между элементами */
 }
 
 .sportsmen-img {
-    margin-top: 40px;
-    height: 400px;
-    width: 500px;
-    padding-left: 30px;
+    max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+    height: 400px; /* Автоматический подбор высоты в соответствии с шириной */
 }
+
 
 .input-field {
     background-color: #464646;

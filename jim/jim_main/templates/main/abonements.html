@@ -16,7 +16,8 @@
         <h5 style="color: yellow;justify-content: center;align-items: center;display: flex;">Цена 2600 рублей</h5>
         <img src="{% static 'main/images/15.png' %}" alt="" class="abonement-img">
         <div class="abonement-button-div">
-            <button class="abonement-button">Купить</button>
+            <button class="abonement-button"><a href="{% url 'createtrening' %}"
+                    style="text-decoration: none; color:#fff;">Купить</a></button>
         </div>
     </div>
     <div class="abonement">
@@ -24,7 +25,8 @@
         <h5 style="color: yellow;justify-content: center;align-items: center;display: flex;">Цена 19.800 рублей</h5>
         <img src="{% static 'main/images/25.png' %}" alt="" class="abonement-img">
         <div class="abonement-button-div">
-            <button class="abonement-button">Купить</button>
+            <button class="abonement-button"><a href="{% url 'createtrening' %}"
+                    style="text-decoration: none; color:#fff;">Купить</a></button>
         </div>
     </div>
 </div>
