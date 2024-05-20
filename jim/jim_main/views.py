@@ -39,7 +39,7 @@ class TreningUpdate(UpdateView):
     model = Trenings
     template_name = 'main/createtrening.html'
     form_class = CreateTreningForm
-    success_url = '/home'
+    success_url = '/mypage'
 
 
 class TreningDelete(DeleteView):
