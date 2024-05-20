@@ -9,6 +9,7 @@ from django.contrib.auth import logout
 from .models import *
 from .forms import *
 import sys
+
 # Create your views here.
 
 def createDt(olddt) :
@@ -18,22 +19,27 @@ def createDt(olddt) :
 def index(request) : 
     return render(request, 'main/index.html', {'title':'Главная'})
 
-def createtrening(request) : 
+def createtrening(request):
     if request.method == 'POST':
-            form = CreateTreningForm(request.POST)
+        form = CreateTreningForm(request.POST)
+        if form.is_valid():
             print(request.POST.get)
             print(request.POST.get("trener"))
-            user = User.objects.get(username = request.user)
-            trener = Treners.objects.get(id = request.POST.get("trener"))
+
+            user = User.objects.get(username=request.user.username)
+            trener = Treners.objects.get(id=request.POST.get("trener"))
             hall = Halls.objects.get(id=request.POST.get("hall"))
-            print(createDt(request.POST.get("dt")))
-            trening = Trenings(trener=trener, hall =hall, user = user, dt = createDt(request.POST.get("dt")))
+            dt = createDt(request.POST.get("dt"))
+            print(dt)
+
+            trening = Trenings(trener=trener, hall=hall, user=user, dt=dt)
             trening.save()
-            HttpResponseRedirect('/home')
+
+            return redirect('/home')  # Используем redirect для корректного перенаправления
     else:
         form = CreateTreningForm()
 
-    return render(request, 'main/createtrening.html', {'title':'Записаться на тренировку', 'form': form}) 
+    return render(request, 'main/createtrening.html', {'title': 'Записаться на тренировку', 'form': form})
 
 class TreningUpdate(UpdateView):
     model = Trenings
@@ -122,28 +128,43 @@ def logout_user(request):
     return HttpResponseRedirect('signIn')
 
 
-def lovingJimJson(request) : 
-    treningssql = Trenings.objects.all().filter(user_id = request.user)
+def lovingJimJson(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+
+    treningssql = Trenings.objects.filter(user_id=request.user.id)
+
     if request.method == 'GET':
         response_data = {}
         loveJims = {}
+
         for i in treningssql:
-            if i.hall_id in loveJims :
-                loveJims[i.hall_id] = loveJims[i.hall_id] + 1
-            else :
+            if i.hall_id in loveJims:
+                loveJims[i.hall_id] += 1
+            else:
                 loveJims[i.hall_id] = 1
+
         print(loveJims)
-        max = 0
-        for j in loveJims :
-            if loveJims[j] > max :
-                max = j
-        lovingJim = Halls.objects.get(id = max)
-        jim = {}
-        jim['adres'] = lovingJim.Adres
-        jim['title'] = lovingJim.title
-        jim['area'] = lovingJim.area
-        response_data['lovingJim'] = jim
+
+        max_hall_id = None
+        max_count = 0
+        for hall_id, count in loveJims.items():
+            if count > max_count:
+                max_hall_id = hall_id
+                max_count = count
+
+        if max_hall_id:
+            lovingJim = Halls.objects.get(id=max_hall_id)
+            jim = {
+                'adres': lovingJim.Adres,
+                'title': lovingJim.title,
+                'area': lovingJim.area,
+            }
+            response_data['lovingJim'] = jim
+        else:
+            response_data['lovingJim'] = None
+
         print(response_data)
         return HttpResponse(json.dumps(response_data), content_type="application/json")
-    else:
-        return HttpResponse(json.dumps([]), content_type="application/json")
+
+    return HttpResponse(json.dumps([]), content_type="application/json")
